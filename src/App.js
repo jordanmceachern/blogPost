@@ -22,9 +22,11 @@ class App extends Component {
               <li><hr /></li>
               <li>Google Oauth</li>
               <li>React Router</li>
+              <li>MongoDB/ Mongoose</li>
+              <li>Image flashing</li>
+              <li>Redux, actions, and reducers</li>
               <li>Smaller Window w/ Scrolling Blog Feed</li>
-              <li>MongoDB</li>
-              <li>Schema</li>
+              <li>Responsive design and collapsing menus</li>
             </ul>
           </div>
         </div>

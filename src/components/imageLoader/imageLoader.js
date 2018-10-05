@@ -16,9 +16,9 @@ class ImageLoader extends React.Component {
         const img = new Image()
         img.src = this.props.url
         img.onload = () => {
-        setTimeout(()=>this.setState({loadSecond: true}),2000)
+        setTimeout(()=>this.setState({loadSecond: true}),500)
         }
-      },2000)
+      },500)
     }
   }
   render(){
