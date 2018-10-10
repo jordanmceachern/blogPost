@@ -2,17 +2,7 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const keys = require('../config/keys')
 const mongoose = require('mongoose')
-const users = mongoose.model('users')
-
-passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
-
-passport.deserializeUser((id, done) => {
-    users.findById(id).then(foundUser=>{
-        done(null, foundUser)
-    })
-})
+const User = mongoose.model('users')
 
 passport.use(new GoogleStrategy({
     clientID: keys.googleClientID,
@@ -21,14 +11,25 @@ passport.use(new GoogleStrategy({
     proxy: true
     }, 
     (accessToken, refreshToken, profile, done) => {
-        user.findOne({ googleId: profile.id })
-        .then(existingUser => {
-            if (existingUser) {
-                done(null, existingUser)
-            } else {
-                new user({ googleId: profile.id }).save()
-                    ,then(newUser => done(null, newUser))
-            }
+        console.log(profile)
+        User.findOne({ googleId: profile.id })
+            .then(existingUser => {
+                if (existingUser) {
+                    done(null, existingUser)
+                } else {
+                    new User({ googleId: profile.id }).save()
+                        .then(newUser => done(null, newUser))
+                }
+            })
         })
+    )
+
+passport.serializeUser((user, done) => {
+    done(null, user.id) //"id" on this line is the mongo record id, not the google id
+})
+
+passport.deserializeUser((id, done) => {
+    User.findById(id).then(foundUser=>{
+        done(null, foundUser)
     })
-)
+})

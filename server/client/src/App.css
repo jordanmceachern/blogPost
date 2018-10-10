@@ -32,6 +32,14 @@ h2 {
     color: white;
 }
 
+a {
+    position: absolute;
+    text-decoration: none;
+    top: 135px;
+    left: 20px;
+    color: inherit;
+}
+
 #AppName {
     position: absolute; 
     left: 10px;

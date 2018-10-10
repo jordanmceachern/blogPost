@@ -29,6 +29,7 @@ class App extends Component {
               <li>Responsive design and collapsing menus</li>
             </ul>
           </div>
+          <a href="/auth/google">Sign In With Google</a>
         </div>
         </ImageLoader>
       </React.Fragment>

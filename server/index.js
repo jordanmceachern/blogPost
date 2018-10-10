@@ -6,14 +6,14 @@ const passport = require('passport')
 const mongoose = require('mongoose')
 const keys = require('./config/keys')
 mongoose.connect('keys.mongoURI')
-require('./models/user')
+require('./models/users')
 
 require('./services/passport')
 require('./routes/authRoutes')(app)
 
 app.use(
     cookieSession({
-        maxAge: 2592000000,
+        maxAge: 2592000000, //30 days
         key: [keys.cookieKey]
     })
 )
