@@ -4,9 +4,7 @@
   "private": true,
   "proxy": {
     "/auth/google": {
-      "target": "http://localhost:5000",
-      "secure": false,
-      "ignorePath": true
+      "target": "http://localhost:5000"
       }
     },
   "dependencies": {

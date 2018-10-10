@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        {console.log("client is running")}
         <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}>
         <div className="App">
           <h1 id="AppName">BlogPost</h1>
