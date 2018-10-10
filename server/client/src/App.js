@@ -17,6 +17,7 @@ class App extends Component {
             <button>Sign up</button>|
             <button>Login</button>
           </h2>
+          <a href="/auth/google">Sign In With Google</a>
           <div>
             <ul>
               <li id="title">TO DO:</li>
@@ -30,7 +31,6 @@ class App extends Component {
               <li>Responsive design and collapsing menus</li>
             </ul>
           </div>
-          <a href="/auth/google">Sign In With Google</a>
         </div>
         </ImageLoader>
       </React.Fragment>
