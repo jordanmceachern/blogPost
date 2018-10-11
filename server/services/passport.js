@@ -11,13 +11,13 @@ passport.use(new GoogleStrategy({
     proxy: true
     }, 
     async (accessToken, refreshToken, profile, done) => {
-        const existingUser = await User.findOne({ googleId: profile.id })
+        try{const existingUser = await User.findOne({ googleId: profile.id })
             if (existingUser) {
                 done(null, existingUser)
             } else {
                 const newUser = await new User({ googleId: profile.id }).save()
                 done(null, newUser)
-            }
+            }} catch(err) {return console.log(err)}
         }
     )
 )

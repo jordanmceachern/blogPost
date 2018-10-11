@@ -30,8 +30,8 @@ class ImageLoader extends React.Component {
       <div 
         className="background"
         style={{background: `center / cover no-repeat url(${src})`}}> 
-        { this.props.children } 
-      </div>          
+        { this.props.children }
+      </div>
     )
   }
 }
