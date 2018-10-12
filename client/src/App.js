@@ -23,10 +23,12 @@ class App extends Component {
           <Header />
           <Route exact path="/">
               <div id="App">
-                <BlurUp 
-                  placeholderURL={l_jpg}
-                  url={jpg}
-                  aspectRatio="6:4" />
+                  <div id="background">
+                    <BlurUp
+                      placeholderURL={l_jpg}
+                      url={jpg}
+                      aspectRatio="6:4" />
+                  </div>
                 <ul>
                   <li id="title">TO DO:</li>
                   <li><hr /></li>
