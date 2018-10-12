@@ -23,19 +23,19 @@ class App extends Component {
           <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}>
           <Header />
           <Route exact path="/">
-              <div id="App">
-                <ul>
-                  <li id="title">TO DO:</li>
-                  <li><hr /></li>
-                  <li>Google Oauth</li>
-                  <li>React Router</li>
-                  <li>MongoDB/ Mongoose</li>
-                  <li>Image flashing</li>
-                  <li>Redux, actions, and reducers</li>
-                  <li>Smaller Window w/ Scrolling Blog Feed</li>
-                  <li>Responsive design and collapsing menus</li>
-                </ul>
-              </div>
+            <div id="App">
+              <ul>
+                <li id="title">TO DO:</li>
+                <li><hr /></li>
+                <li>Google Oauth</li>
+                <li>React Router</li>
+                <li>MongoDB/ Mongoose</li>
+                <li>Image flashing</li>
+                <li>Redux, actions, and reducers</li>
+                <li>Smaller Window w/ Scrolling Blog Feed</li>
+                <li>Responsive design and collapsing menus</li>
+              </ul>
+            </div>
           </Route>
           </ImageLoader>
         </div>
