@@ -1,24 +1,45 @@
 #AppName {
-    position: absolute; 
+    position: absolute;
     left: 10px;
     margin: 10px; 
-    padding: 5px; 
+    padding: 5px;
     background-color: rgba(200,200,256,0.3);
+}
+
+#AppName a {
+    text-decoration: none;
+    color: inherit;
 }
 
 #signUpLogin {
     position: absolute;
+    white-space: nowrap;
     left: 10px;
     top: 78px;
+    width: min-content;
     margin: 10px;
-    padding: 5px;
+    padding: 0px;
+    background-color: rgba(200,200,256,0.2);
+    border: none;
+}
+
+#signUpLogin a, #signUpLogin button, #signUpLogin li {
     text-transform: uppercase;
     text-decoration: none;
+    border: none;
+    background: none;
     color: inherit;
     font-family: "Montserrat-light", sans-serif;
     font-size: 16px;
     font-weight: 300;
-    background: none;
-    background-color: rgba(200,200,256,0.2);
-    border: none;
+}
+
+a, button {padding: 5px}
+
+#signUpLogin button:active {
+    background-color: rgba(200,200,256,0.5);
+}
+
+button:focus {
+    outline: none;
 }
