@@ -10,7 +10,7 @@ class Header extends Component {
             case null:
                 return
             case false:
-                return <li><button><a href="/auth/google">Login | Sign up With Google</a></button></li>
+                return <li><a href="/auth/google">Login | Sign up With Google</a></li>
             default:
                 return <li><a>{this.props.auth.name} |<button onClick={this.props.logout}>Logout</button></a></li>
         }
