@@ -7,7 +7,13 @@ module.exports = app => {
         })
     )
     
-    app.get('/auth/google/callback', passport.authenticate('google'))
+    app.get(
+        '/auth/google/callback', 
+        passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/')
+        }
+    )
 
     app.get('/api/current_user', (req,res) => {
         res.send(req.user) //user is extracted from cookie existing in session following a login
@@ -16,6 +22,5 @@ module.exports = app => {
     app.get('/api/logout', (req,res) => {
         req.logout() //function attached to the req obj by passport
         res.send(req.user)
-        //res.redirect('/')
     })
 }
