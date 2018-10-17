@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/">
             <div id="App">
               <ul>
-                <li id="title">Hi! TO DO:</li>
+                <li id="title">TO DO:</li>
                 <li><hr /></li>
                 <li>Image flashing</li>
                 <li>Smaller Window w/ Scrolling Blog Feed</li>
