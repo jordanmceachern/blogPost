@@ -25,22 +25,4 @@ h1 {
     color: white;
 }
 
-#App {
-    position: absolute;
-    width: 100%;
-    height: 30%;
-    top: 25%;
-}
-
-ul {
-    width: 30%; 
-    text-align: left; 
-    margin: 0 auto; 
-    padding: 100px;
-}
-
-#todo {
-    background-color: rgba(200,200,256,0.2);
-}
-
 li {list-style: none;}
