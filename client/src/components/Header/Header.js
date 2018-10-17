@@ -3,6 +3,7 @@ import './Header.css'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions'
+import google_signin from '../../btn_google_signin_light_normal_web@2x.png'
 
 class Header extends Component {
     renderContent() {
@@ -10,9 +11,9 @@ class Header extends Component {
             case null:
                 return
             case false:
-                return <li><a href="/auth/google">Login | Sign up With Google</a></li>
+                return <li><a href="/auth/google"><img src={google_signin} alt="sign in with google"/></a></li>
             default:
-                return <li><a>{this.props.auth.name} |<button onClick={this.props.logout}>Logout</button></a></li>
+                return <li id="logout"><a>{this.props.auth.name} |<button onClick={this.props.logout}>Logout</button></a></li>
         }
     }
     

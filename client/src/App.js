@@ -24,7 +24,7 @@ class App extends Component {
           <Header />
           <Route exact path="/">
             <div id="App">
-              <ul>
+              <ul id="todo">
                 <li id="title">TO DO:</li>
                 <li><hr /></li>
                 <li>Image flashing</li>

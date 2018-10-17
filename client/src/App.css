@@ -36,8 +36,11 @@ ul {
     width: 30%; 
     text-align: left; 
     margin: 0 auto; 
-    padding: 100px; 
-    background-color: rgba(200,200,256,0.20);
+    padding: 100px;
+}
+
+#todo {
+    background-color: rgba(200,200,256,0.2);
 }
 
 li {list-style: none;}

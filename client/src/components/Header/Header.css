@@ -17,29 +17,32 @@
     left: 10px;
     top: 78px;
     width: min-content;
-    margin: 10px;
+    margin-top: 10px;
     padding: 0px;
-    background-color: rgba(200,200,256,0.2);
     border: none;
 }
 
-#signUpLogin a, #signUpLogin button, #signUpLogin li {
+#signUpLogin a, #signUpLogin li, button {
     text-transform: uppercase;
     text-decoration: none;
-    border: none;
-    background: none;
     color: inherit;
     font-family: "Montserrat-light", sans-serif;
     font-size: 16px;
     font-weight: 300;
+    border: none;
+    background: none;
 }
 
-a, button {padding: 5px}
-
-#signUpLogin button:active {
-    background-color: rgba(200,200,256,0.5);
+#logout {
+    background-color: rgba(200,200,256,0.2) !important;
+    margin-left: 10px;
 }
 
+a {padding: 5px 0 0 5px;}
+img {width: 200px;}
+
+button {padding: 10px 5px 10px 5px;}
 button:focus {
     outline: none;
 }
+button:active {background-color: rgba(200,200,256,0.5);}
