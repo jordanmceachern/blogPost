@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css'
 import ImageLoader from './components/imageLoader/imageLoader'
 import lightsvg from './supersimplebg.svg'
@@ -18,7 +18,7 @@ class App extends Component {
   //<BlurUp placeholderURL={l_jpg} url={jpg} aspectRatio="6:4" />
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div>
           <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}>
           <Header />
@@ -35,7 +35,7 @@ class App extends Component {
           </Route>
           </ImageLoader>
         </div>
-      </Router>
+      </BrowserRouter>
     )
   }
 }
