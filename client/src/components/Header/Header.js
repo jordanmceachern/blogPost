@@ -11,7 +11,7 @@ class Header extends Component {
             case null:
                 return
             case false:
-                return <li><a href="/auth/google"><img src={google_signin} alt="sign in with google"/></a></li>
+                return <li id="login"><a href="/auth/google"><img src={google_signin} alt="sign in with google"/></a></li>
             default:
                 return <li id="logout"><a>{this.props.auth.name} |<button onClick={this.props.logout}>Logout</button></a></li>
         }

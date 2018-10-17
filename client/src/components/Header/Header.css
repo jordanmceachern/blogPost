@@ -33,6 +33,7 @@
     background: none;
 }
 
+#login {margin-left: 2px;}
 #logout {
     background-color: rgba(200,200,256,0.2) !important;
     margin-left: 10px;

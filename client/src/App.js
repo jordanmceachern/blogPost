@@ -20,20 +20,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}>
-          <Header />
-          <Route exact path="/">
-            <div id="App">
-              <ul id="todo">
-                <li id="title">TO DO:</li>
-                <li><hr /></li>
-                <li>Image flashing</li>
-                <li>Smaller Window w/ Scrolling Blog Feed</li>
-                <li>Responsive design and collapsing menus</li>
-              </ul>
-            </div>
-          </Route>
-          </ImageLoader>
+          <h2>Test Test Test</h2>
         </div>
       </BrowserRouter>
     )
