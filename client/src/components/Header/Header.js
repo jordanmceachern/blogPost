@@ -21,12 +21,10 @@ class Header extends Component {
         console.log(this.props)
         return (
             <nav>
-                <div>
-                    <h1 id="AppName"><Link to={'/'}>BlogPost</Link></h1>
-                    <ul id="signUpLogin">
-                        {this.renderContent()}
-                    </ul>
-                </div>
+                <h1 id="AppName"><Link to={'/'}>BlogPost</Link></h1>
+                <ul id="signUpLogin">
+                    {this.renderContent()}
+                </ul>
             </nav>
         )
     }

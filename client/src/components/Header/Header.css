@@ -1,8 +1,7 @@
 #AppName {
     position: absolute;
-    left: 10px;
-    margin: 10px; 
-    padding: 5px;
+    margin: 10px 10px 10px 0; 
+    padding: 5px 15px 5px 5px;
     background-color: rgba(200,200,256,0.3);
 }
 
@@ -14,11 +13,10 @@
 #signUpLogin {
     position: absolute;
     white-space: nowrap;
-    left: 10px;
     top: 78px;
     width: min-content;
     margin-top: 10px;
-    padding: 0px;
+    padding: 0;
     border: none;
 }
 
@@ -33,13 +31,12 @@
     background: none;
 }
 
-#login {margin-left: 2px;}
 #logout {
     background-color: rgba(200,200,256,0.2) !important;
-    margin-left: 10px;
+    padding-left: 10px;
 }
 
-a {padding: 5px 0 0 5px;}
+a {padding-top: 5px;}
 img {width: 200px;}
 
 button {padding: 10px 5px 10px 5px;}

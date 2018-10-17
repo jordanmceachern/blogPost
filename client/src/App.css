@@ -26,3 +26,14 @@ h1 {
 }
 
 li {list-style: none;}
+
+@media only screen and (max-width: 1135px) {
+    body {
+        overflow: scroll;
+    }
+
+    #contain {
+        display: flex;
+        flex-direction: column;
+    }
+}

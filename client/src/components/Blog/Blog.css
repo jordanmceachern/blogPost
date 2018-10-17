@@ -6,3 +6,11 @@
     bottom: 10px;
     background-color: rgba(256,256,256,0.5);/*rgba(200,200,256,0.2);*/
 }
+
+@media only screen and (max-width: 1135px) {
+    #Blog {
+        top: 800px;
+        width: 90%;
+        margin: auto;
+    }
+}
