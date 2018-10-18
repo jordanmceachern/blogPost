@@ -20,12 +20,12 @@ class Header extends Component {
     render() {
         console.log(this.props)
         return (
-            <nav>
+            <div id="header">
                 <h1 id="AppName"><Link to={'/'}>BlogPost</Link></h1>
                 <ul id="signUpLogin">
                     {this.renderContent()}
                 </ul>
-            </nav>
+            </div>
         )
     }
 }

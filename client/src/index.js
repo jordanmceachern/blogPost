@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk'
 import logger from 'redux-logger'
 import './index.css'
 import App from './App'
-import registerServiceWorker from './registerServiceWorker'
+//import registerServiceWorker from './registerServiceWorker'
 
 const reduxStore = createStore(reducers, {}, applyMiddleware(reduxThunk, logger))
 

@@ -8,7 +8,7 @@ import svg from './simplebg.svg'
 //import l_jpg from './lightBackground.jpg'
 import jpg from './background.jpg'
 import Blog from './components/Blog/Blog'
-import Subheader from './components/Subheader/Subheader'
+import Heading from './components/heading/heading'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 
@@ -21,14 +21,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}>
+          <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}/>
           <Route exact path="/">
-            <div id="contain">
-              <Subheader />
+            <div id="container">
+              <Heading />
               <Blog />
             </div>
           </Route>
-          </ImageLoader>
         </div>
       </BrowserRouter>
     )

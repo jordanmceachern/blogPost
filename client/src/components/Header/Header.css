@@ -1,21 +1,30 @@
+#header {
+    position: relative; 
+    display: flex; 
+    flex-direction: column;
+    height: 130px;
+    width: 230px
+}
+
 #AppName {
-    position: absolute;
+    width: 200px;
     margin: 10px 10px 10px 0; 
-    padding: 5px 15px 5px 5px;
-    background-color: rgba(200,200,256,0.3);
+    padding: 5px 10px 5px 5px;
+    background-color: rgba(200,200,256,0.3)
 }
 
 #AppName a {
     text-decoration: none;
+    text-transform: uppercase;
     color: inherit;
+    font-family: inherit;
+    font-weight: 300;
 }
 
 #signUpLogin {
-    position: absolute;
     white-space: nowrap;
-    top: 78px;
     width: min-content;
-    margin-top: 10px;
+    margin: 0;
     padding: 0;
     border: none;
 }
@@ -24,23 +33,29 @@
     text-transform: uppercase;
     text-decoration: none;
     color: inherit;
-    font-family: "Montserrat-light", sans-serif;
+    font-family: inherit;
     font-size: 16px;
     font-weight: 300;
     border: none;
     background: none;
 }
 
+#login {list-style: none}
 #logout {
     background-color: rgba(200,200,256,0.2) !important;
     padding-left: 10px;
+    margin-top: 5px;
+    list-style: none
 }
 
-a {padding-top: 5px;}
-img {width: 200px;}
+a {padding-top: 5px}
+img {width: 200px}
 
-button {padding: 10px 5px 10px 5px;}
-button:focus {
-    outline: none;
+button {padding: 10px 5px 10px 5px}
+button:focus {outline: none}
+button:active {background-color: rgba(200,200,256,0.5)}
+
+@media only screen and (max-width: 940px) {
+    #header {align-items: center}
+    #AppName {margin:10px}
 }
-button:active {background-color: rgba(200,200,256,0.5);}
