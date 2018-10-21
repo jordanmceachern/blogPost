@@ -3,35 +3,31 @@ import './imageLoader.css'
 
 class ImageLoader extends React.Component {
   state={
-    loadSecond: false,
     loadFirst: false
   }
 
   componentDidMount(){
     const img = new Image()
-    img.src = this.props.svg
-    img.onload = () => {
-        setTimeout(() => {
-        this.setState({loadFirst: true})
-        const img = new Image()
-        img.src = this.props.url
-        img.onload = () => {
-        setTimeout(()=>this.setState({loadSecond: true}),500)
-        }
-      },500)
-    }
+    img.src = this.props.png
+    img.onload = () => {this.setState({loadFirst: true})}
   }
+  
   render(){
     const src = 
-    this.state.loadSecond ? 
-    this.props.url : this.state.loadFirst ? 
-    this.props.svg : this.props.lightsvg
+    this.state.loadFirst ? this.props.png : this.props.svg
     return (
-      <div 
-        className="background"
-        style={{background: `center / cover no-repeat url(${src})`}}> 
-        { this.props.children }
-      </div>
+        <video 
+          autoPlay
+          loop
+          muted
+          className="video">
+          <source src={this.props.mp4} type="video/mp4"/>
+          <div 
+            className="background"
+            style={{background: `center / cover no-repeat url(${src})`}}> 
+            { this.props.children }
+          </div>
+        </video>
     )
   }
 }

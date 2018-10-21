@@ -13,12 +13,11 @@ class Header extends Component {
             case false:
                 return <li id="login"><a href="/auth/google"><img src={google_signin} alt="sign in with google"/></a></li>
             default:
-                return <li id="logout"><a>{this.props.auth.name} |<button onClick={this.props.logout}>Logout</button></a></li>
+                return <li id="logout"><a><button id="limit">{this.props.auth.name}</button>|<button id="click" onClick={this.props.logout}>Logout</button></a></li>
         }
     }
     
     render() {
-        console.log(this.props)
         return (
             <div id="header">
                 <h1 id="AppName"><Link to={'/'}>BlogPost</Link></h1>

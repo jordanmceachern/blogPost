@@ -2,7 +2,6 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose')
 const keys = require('../config/keys')
-
 const User = mongoose.model('users')
 
 passport.serializeUser((user, done) => {
@@ -23,6 +22,7 @@ passport.use(new GoogleStrategy({
     }, 
     async (accessToken, refreshToken, profile, done) => {
         try{const existingUser = await User.findOne({ googleId: profile.id })
+            console.log(existingUser)
             if (existingUser) {
                 done(null, existingUser)
             } else {

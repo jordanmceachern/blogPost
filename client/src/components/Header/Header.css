@@ -42,7 +42,7 @@
 
 #login {list-style: none}
 #logout {
-    background-color: rgba(200,200,256,0.2) !important;
+    background-color: rgba(200,200,256,0.3) !important;
     padding-left: 10px;
     margin-top: 5px;
     list-style: none
@@ -51,11 +51,22 @@
 a {padding-top: 5px}
 img {width: 200px}
 
-button {padding: 10px 5px 10px 5px}
-button:focus {outline: none}
-button:active {background-color: rgba(200,200,256,0.5)}
+#limit, #limit:focus, #limit:active {padding-left: 0; outline: none;}
+
+#click {padding: 10px 6px 10px 6px}
+#click:focus {outline: none}
+#click:active {background-color: rgba(200,200,256,0.5)}
 
 @media only screen and (max-width: 940px) {
     #header {align-items: center}
     #AppName {margin:10px}
+    #limit, #limit:focus, #limit:active {
+        max-width: 123px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        outline: none;
+        padding-left: 0;
+    }
+    #logout {padding-left: 5px}
 }

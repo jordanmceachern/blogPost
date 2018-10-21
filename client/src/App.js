@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css'
 import ImageLoader from './components/imageLoader/imageLoader'
-import lightsvg from './supersimplebg.svg'
-import svg from './simplebg.svg'
-//import BlurUp from './components/BlurUp/BlurUp'
-//import l_jpg from './lightBackground.jpg'
-import jpg from './background.jpg'
+import svg from './oceanlight.svg'
+import png from './oceanstill.png'
+import mp4 from './ocean.mp4'
 import Blog from './components/Blog/Blog'
 import Heading from './components/heading/heading'
 import { connect } from 'react-redux'
@@ -16,12 +14,11 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser()
   }
-  //<BlurUp placeholderURL={l_jpg} url={jpg} aspectRatio="6:4" />
   render() {
     return (
       <BrowserRouter>
         <div>
-          <ImageLoader lightsvg={lightsvg} svg={svg} url={jpg}/>
+          <ImageLoader svg={svg} png={png} mp4={mp4}/>
           <Route exact path="/">
             <div id="container">
               <Heading />
@@ -34,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+export default connect(null, actions)(App)
