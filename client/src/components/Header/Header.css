@@ -61,7 +61,7 @@ img {width: 200px}
     #header {align-items: center}
     #AppName {margin:10px}
     #limit, #limit:focus, #limit:active {
-        max-width: 123px;
+        max-width: 118px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
