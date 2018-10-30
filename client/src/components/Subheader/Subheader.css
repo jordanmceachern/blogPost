@@ -18,7 +18,7 @@
     #subheader {
         position: static;
         height: 100px;
-        width: 180px;
+        width: min-content;
         top: unset;
         bottom: unset;
         text-align: center;
