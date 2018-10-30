@@ -6,5 +6,23 @@
 
 .video {
     position: fixed;
-    height: 100vh
+    background: no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 940px) {
+    .background {
+        height: 100vh;
+        position: fixed
+    }
+    
+    .video {
+        height: 100%;
+        width: unset;
+        position: fixed;
+        top: unset
+    }
 }

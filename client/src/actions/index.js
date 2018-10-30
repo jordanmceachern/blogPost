@@ -16,5 +16,5 @@ export const logout = () => async dispatch => {
 export const loadposts = () => async dispatch => {
     try{const res = await axios.get('/posts')
         dispatch({ type: FETCH_POSTS, payload: res.data})}
-    catch(err) {return console.log(err)}
+    catch(err) {return console.log(`error dispatching data to reducer: ${err}`)}
 }
