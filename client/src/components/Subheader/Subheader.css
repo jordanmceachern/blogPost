@@ -1,27 +1,89 @@
 #subheader {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     position: absolute;
-    font-family: inherit;
-    font-weight: inherit;
-    font-size: 14px;
-    text-transform: uppercase;
     width: 100%;
     top: 147px;
-    bottom: 10px;
+    height: max-content;
+    max-height: 386px;
     border-radius: 5px;
+    padding: 5px;
     background: rgba(20,83,20,0.5)
 }
 
-@media only screen and (max-width: 940px) {
-    #subheader {
-        position: static;
-        height: 100px;
-        width: min-content;
-        top: unset;
-        bottom: unset;
-        text-align: center;
-        background: rgba(256,256,256,0.5)
-    }
+#aboutMeP, #blogPostP, #searchP {
+    margin: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(256,256,256,0.6)
+}
+
+#aboutMeP:active, #blogPostP:active, #searchP:active {background-color: rgba(256,256,256,1)}
+
+#aboutMe {max-height: 200px}
+#aboutMe, #blogPost {border-radius: 5px; overflow-y: scroll}
+
+#search {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    min-height: 26px
+}
+
+#aboutMe p, #blogPost p {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 12px;
+    text-align: justify;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(256,256,256,0.6);
+    margin: 0 5px 5px 5px
+}
+
+#selfie {
+    background: center / cover no-repeat url("/favicon.ico");
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    margin: 0 auto 5px auto
+}
+
+#search form {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    justify-content: center
+}
+#search form input[type=submit]{
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 60px;
+    margin-left: 5px
+}
+#search form input[type=submit]:active {
+    background: rgba(256,256,256,1)
+}
+#search form input {
+    padding: 5px;
+    font-family: inherit;
+    font-weight: inherit;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    width: 150px;
+    color: black;
+    text-align: center;
+    background: rgba(225,225,256,0.6)
+}
+#search form input:focus {outline: none}
+
+@media only screen and (max-width: 964px) {
+    #subheader {display: none}
 }

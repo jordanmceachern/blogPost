@@ -5,7 +5,7 @@ import ImageLoader from './components/imageLoader/imageLoader'
 import svg from './background.svg'
 import jpg from './background.jpg'
 import Blog from './components/Blog/Blog'
-import Heading from './components/heading/heading'
+import Heading from './components/Heading/Heading'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 

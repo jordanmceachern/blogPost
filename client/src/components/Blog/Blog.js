@@ -8,7 +8,8 @@ import Posts from '../Posts/Posts'
 class Blog extends Component {
     state = {
         text: "",
-        author: ""
+        author: "",
+        first: ""
     }
 
     componentDidMount() {
@@ -18,18 +19,26 @@ class Blog extends Component {
     handleChange = event => {
         const text = event.target.value
         const author = this.props.auth.name
-        this.setState({ text, author })
+        const first = this.props.auth.firstName
+        this.setState({ text, author, first })
     }
 
     handleSubmit = async event => {
+        if(this.state.text===""){return}else{
         event.preventDefault()
+        const date = new Date()
         const post = {
             text: this.state.text,
-            author: this.state.author
+            author: this.state.author,
+            time: `(${date.toDateString()}, ${date.toLocaleTimeString()})`,
+            firstName: this.state.first 
         }
-        try{await axios.post('/posts/new', post)}
+        try{await axios.post('/posts/new', post).then(
+            this.props.loadposts(),
+            this.setState({text: ""})
+        )}
         catch(err) {return console.log(err)
-        }
+        }}
     }
 
     renderContent() {
@@ -42,10 +51,11 @@ class Blog extends Component {
                         </div>
             default:
                 return <div id="postForm">
-                            <p id="makePost">What's on your mind?</p>
+                            <p id="makePost">Share a thought.</p>
                             <div id="form">
                                 <form onSubmit={this.handleSubmit}>
-                                    <textarea name="text" placeholder="Write your thoughts here..." onChange={this.handleChange}/>
+                                    <textarea name="text" placeholder="Write your thoughts here..." 
+                                    onChange={this.handleChange} value={this.state.text}/>
                                     <input type="submit" value="post"/>
                                 </form>
                             </div>

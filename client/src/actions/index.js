@@ -13,8 +13,15 @@ export const logout = () => async dispatch => {
     catch(err) {return console.log(err)}
 }
 
-export const loadposts = () => async dispatch => {
-    try{const res = await axios.get('/posts')
-        dispatch({ type: FETCH_POSTS, payload: res.data})}
-    catch(err) {return console.log(`error dispatching data to reducer: ${err}`)}
+export const loadposts = (search) => async dispatch => {
+    try{
+        if(search===undefined){
+        const res = await axios.get('/posts/*')
+            dispatch({ type: FETCH_POSTS, payload: res.data})
+        } else if(search===""){
+            return
+        }
+        const res = await axios.get(`/posts/:${search}`)
+            dispatch({ type: FETCH_POSTS, payload: res.data})
+    } catch(err) {return console.log(`error with loadposts: ${err}`)}
 }

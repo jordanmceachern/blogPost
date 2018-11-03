@@ -2,23 +2,36 @@ import React, { Component } from 'react'
 import './Posts.css'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
+import axios from 'axios'
 
 class Posts extends Component {
+
+    deleteButton = (post) => {
+        if(this.props.auth===null){return}
+        if(this.props.auth.name===post[2]){
+            return <button className="postDelete" onClick={this.handleDelete(post[0])}>Delete</button>
+        }
+    }
+
+    handleDelete = (id) => () => {
+        axios.post('/posts/delete', { id }).then(this.props.loadposts()).catch(
+            err => console.log(err))
+    }
+
     renderContent() {
         switch (this.props.posts) {
             case null:
                 return  <div>
                             <p>Loading...</p>
                         </div>
-            case false:
-                return  <div>
-                            <p>No posts have been made yet...you could be the first!</p>
-                        </div>
             default:
                 const posts = this.props.posts
-                const list = posts.map(post => <li>
-                                                <h4>{post[1]}:</h4>
-                                                <p>{post[0]}</p>
+                if(posts==="No posts have been made yet"){return (
+                <li id="noposts">Nothing found...</li>)}
+                const list = posts.map(post => <li className={post[4]} key={post[0]}>
+                                                <h4>{post[2]} - {post[3]}:</h4>
+                                                <p>{post[1]}</p>
+                                                {this.deleteButton(post)}
                                                </li>)
                 return list
         }
@@ -26,14 +39,14 @@ class Posts extends Component {
 
     render(){
         return(
-            <ul>
+            <ul id="list">
                 {this.renderContent()}
             </ul>
         )
     }
 }
 
-function mapStateToProps({ posts }) {
-    return { posts }
+function mapStateToProps({ posts, auth }) {
+    return { posts, auth }
 }
 export default connect(mapStateToProps, actions)(Posts)

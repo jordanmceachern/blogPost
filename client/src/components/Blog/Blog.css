@@ -32,8 +32,8 @@
     flex-direction: column;
     align-items: center;
     padding-top: 5px;
-    max-height: 150px;
-    height: 30%;
+    height: 0;
+    min-height: 158px;
     border-bottom: 1px solid rgba(256,256,256,0.6);
     width: 95%
 }
@@ -86,8 +86,9 @@ form {
     border: none;
     border-radius: 5px;
     font-size: 14px;
-    height: 50px;
+    height: 65px;
     color: black;
+    resize: none;
     background: rgba(256,256,256,0.6)
 }
 #postForm #form form textarea:focus {outline: none}
@@ -106,27 +107,19 @@ form {
 #postForm #form form input:focus {outline: none}
 
 #posts {
-    height: 70%;
+    height: 100%;
     width: 95%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5px
-}
-#renderPosts {
-    font-family: inherit;
-    font-weight: inherit;
-    padding: 10px 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    margin: 0
+    margin: 15px 0
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 964px) {
     #spacer {
         height: 600px;
         width: 95%;
-        margin: 0 auto;
+        margin: 0 auto
     }
 }

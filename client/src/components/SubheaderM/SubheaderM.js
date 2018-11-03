@@ -1,37 +1,22 @@
 import React, { Component } from 'react'
-import './Subheader.css'
-import { connect } from 'react-redux'
-import * as actions from '../../actions'
+import './SubheaderM.css'
 
-class Subheader extends Component {
+class SubheaderM extends Component {
     state = {
-        aboutMeP: true,
+        aboutMeP: false,
         blogPostP: false,
-        searchP: false,
-        input: "",
-        lastSearch: "initial"
+        searchP: false
     }
     
     toggleClass = stateKey => () => {
         this.setState({[stateKey]: !this.state[stateKey]})
     }
 
-    changeHandler = event => {
-        this.setState({input: event.target.value})
-    }
-
-    searchHandler = event => {
-        event.preventDefault()
-        if(this.state.input===""){return} else {
-            this.props.loadposts(this.state.input)
-        }
-    }
-
     render(){
         let AboutMe = ""
         if(this.state.aboutMeP===true){
-            AboutMe = <div id="aboutMe">
-                <div id="selfie">
+            AboutMe = <div id="aboutMeM">
+                <div id="selfieM">
                 </div>
                 <p>
                     My name is Jordan and I'm a developer. I first discovered my passion for coding during the second 
@@ -70,7 +55,7 @@ class Subheader extends Component {
 
         let BlogPost = ""
         if(this.state.blogPostP===true){
-            BlogPost = <div id="blogPost">
+            BlogPost = <div id="blogPostM">
                 <p>
                     BlogPost was designed and developed to be a blog that serves as an outlet for anyone
                     to share their thoughts and feelings with others. Please feel free to express yourself 
@@ -86,30 +71,23 @@ class Subheader extends Component {
 
         let Search = ""
         if(this.state.searchP===true){
-            Search = <div id="search">
-                <form onSubmit={this.searchHandler}>
-                    <input 
-                    type="text" 
-                    placeholder="..."
-                    onChange={this.changeHandler}
-                    value={this.state.input}/>
-                    <input type="submit" value="find"/>
-                </form> 
+            Search = <div id="searchM">
+                <input type="text" placeholder="Find Name..."/>
             </div>
         }
         const searchKey = "searchP"
         
         return(
-            <div id="subheader">
-                <p id="aboutMeP" onClick={this.toggleClass(aboutMeKey)}>About Me</p>
+            <div id="subheaderM">
+                <p id="aboutMePM" onClick={this.toggleClass(aboutMeKey)}>About Me</p>
                 {AboutMe}
-                <p id="blogPostP" onClick={this.toggleClass(blogPostKey)}>What is BlogPost?</p>
+                <p id="blogPostPM" onClick={this.toggleClass(blogPostKey)}>What is BlogPost?</p>
                 {BlogPost}
-                <p id="searchP" onClick={this.toggleClass(searchKey)}>Search Content</p>
+                <p id="searchPM" onClick={this.toggleClass(searchKey)}>Search By Author</p>
                 {Search}
             </div>
         )
     }
 }
 
-export default connect(null, actions)(Subheader)
+export default SubheaderM

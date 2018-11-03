@@ -1,0 +1,59 @@
+[33mcommit f0f477937838752387c66869baf9618eb7d85bc7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Mon Oct 29 23:18:02 2018 -0400
+
+    added preliminary functionality for posting
+
+[33mcommit d7baf34a9abf6eb8a7b00ad183925f6dd7bc605a[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Mon Oct 29 22:31:36 2018 -0400
+
+    added preliminary posting functionality
+
+[33mcommit c99e7b0667ac83577bfa7a7beea0eb90c970ba4c[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Sun Oct 21 15:12:00 2018 -0400
+
+    login test
+
+[33mcommit bba3d55d7e62de998153b773b2be1836735a3122[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Sun Oct 21 15:05:14 2018 -0400
+
+    added new background
+
+[33mcommit eff03767011422b9761e29d0eb07084b5f325c34[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Thu Oct 18 16:07:05 2018 -0400
+
+    formed initial landing layout
+
+[33mcommit 3fa94acade2774f883b167e33e5540408dfa0f32[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Wed Oct 17 16:59:21 2018 -0400
+
+    commented out registerServiceWorker()
+
+[33mcommit becf0aa63f49b29632bc5e24f5d1d73e7e823c6f[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Wed Oct 17 15:18:54 2018 -0400
+
+    Test test test
+
+[33mcommit 67f5267a7d7a4cab3aae53e5bcb1f05fbbf070aa[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Wed Oct 17 14:20:51 2018 -0400
+
+    test test test
+
+[33mcommit 4541280323479c3bfa7fb536c4748f56182b2ea1[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Wed Oct 17 11:44:36 2018 -0400
+
+    added official google img for signin
+
+[33mcommit 29476ab0754c92547a8d753308fbc17c2ff9f45e[m
+Author: jordanmceachern <jormceachern@gmail.com>
+Date:   Wed Oct 17 09:44:43 2018 -0400
+
+    changed react router import for fix attempt
