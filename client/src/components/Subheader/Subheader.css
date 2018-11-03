@@ -85,6 +85,7 @@
 #search form input:focus {outline: none}
 
 input::-webkit-input-placeholder {color: rgba(50,50,50,0.8) !important}
+textarea::-webkit-input-placeholder {color: rgba(50,50,50,0.8) !important}
 
 @media only screen and (max-width: 964px) {
     #subheader {display: none}
