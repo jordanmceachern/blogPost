@@ -1,0 +1,84 @@
+#subheaderM {display: none}
+
+#aboutMePM, #blogPostPM, #searchPM {
+    margin: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(256,256,256,0.6)
+}
+
+#aboutMePM:active, #blogPostPM:active, #searchPM:active {background-color: rgba(256,256,256,1)}
+
+#aboutMeM {max-height: 250px}
+#aboutMeM, #blogPostM {border-radius: 5px; overflow-y: scroll}
+
+#searchM {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    min-height: 40px;
+    width: 90%
+}
+
+#aboutMeM p, #blogPostM p {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 12px;
+    text-align: justify;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(256,256,256,0.6);
+    margin: 0 5px 5px 5px
+}
+
+#selfieM {
+    background: center / cover no-repeat url("/favicon.ico");
+    width: 175px;
+    height: 175px;
+    border-radius: 5px;
+    margin: 0 auto 5px auto
+}
+
+#searchM input {
+    padding: 5px;
+    margin: 5px;
+    font-family: inherit;
+    font-weight: inherit;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    color: black;
+    text-align: center;
+    background: rgba(256,256,256,0.6)
+}
+#searchM input:focus {outline: none}
+
+@media only screen and (max-width: 964px) {
+    #subheaderM {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 450px;
+        margin-top: 10px;
+        height: max-content;
+        max-height: 386px;
+        border-radius: 5px;
+        padding: 5px;
+        background: rgba(20,83,20,0.5)
+    }
+
+    #subheaderM p {width: 95%}
+    @media only screen and (max-width: 500px) {
+        #subheaderM {width: 100%}
+    }
+}

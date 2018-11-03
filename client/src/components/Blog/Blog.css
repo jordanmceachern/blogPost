@@ -10,24 +10,116 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     top: 10px;
     bottom: 10px;
-    background-color: rgba(200,200,256,0.3);
-    overflow: hidden
+    border-radius: 5px;
+    background-color: rgba(20,83,20,0.5)
 }
 
-#Blog p {
-    width: 90%;
+#post {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    height: 50px;
+    border-bottom: 1px solid rgba(256,256,256,0.6);
+    width: 95%
+}
+#postForm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+    height: 0;
+    min-height: 158px;
+    border-bottom: 1px solid rgba(256,256,256,0.6);
+    width: 95%
+}
+
+#makePost, #wantPost {
+    position: absolute;
+    width: max-content;
+    text-transform: uppercase;
     font-family: inherit;
     font-weight: inherit;
-    overflow: hidden
+    font-size: 14px;
+    background-color: rgba(256,256,256,0.6);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+}
+#makePost p, #wantPost p{
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 14px;
+    color: black;
+    width: max-content;
+    padding: 0 5px;
+    border-radius: 5px;
+    background-color: rgba(256,256,256,0.6);
+    text-transform: uppercase;
 }
 
-@media only screen and (max-width: 940px) {
+#form {
+    top: 25px;
+    position: absolute;
+    margin: 10px 0;
+    height: 100px;
+    width: 100%;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#postForm #form form textarea {
+    width: 95%;
+    margin: 5px 0;
+    padding: 5px;
+    font-family: inherit;
+    font-weight: inherit;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 65px;
+    color: black;
+    resize: none;
+    background: rgba(256,256,256,0.6)
+}
+#postForm #form form textarea:focus {outline: none}
+#postForm #form form input {
+    display: block;
+    background: rgba(256,256,256,0.6);
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 14px;
+    text-transform: uppercase
+}
+#postForm #form form input[type=submit] {padding: 5px 15px; margin-top: 5px}
+#postForm #form form input[type=submit]:active {background: rgba(200,200,200,1)}
+#postForm #form form input:focus {outline: none}
+
+#posts {
+    height: 100%;
+    width: 95%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0
+}
+
+@media only screen and (max-width: 964px) {
     #spacer {
         height: 600px;
         width: 95%;
-        margin: auto;
+        margin: 0 auto
     }
 }

@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css'
 import ImageLoader from './components/imageLoader/imageLoader'
-import svg from './oceanlight.svg'
-import png from './oceanstill.png'
-import mp4 from './ocean.mp4'
+import svg from './background.svg'
+import jpg from './background.jpg'
 import Blog from './components/Blog/Blog'
-import Heading from './components/heading/heading'
+import Heading from './components/Heading/Heading'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 
@@ -18,7 +17,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <ImageLoader svg={svg} png={png} mp4={mp4}/>
+          <ImageLoader svg={svg} jpg={jpg}/>
           <Route exact path="/">
             <div id="container">
               <Heading />
