@@ -90,7 +90,7 @@ class Subheader extends Component {
                 <form onSubmit={this.searchHandler}>
                     <input 
                     type="text" 
-                    placeholder="..."
+                    placeholder="CASE SENSITIVE..."
                     onChange={this.changeHandler}
                     value={this.state.input}/>
                     <input type="submit" value="find"/>

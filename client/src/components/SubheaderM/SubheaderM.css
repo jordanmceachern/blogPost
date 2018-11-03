@@ -45,20 +45,34 @@
     margin: 0 auto 5px auto
 }
 
-#searchM input {
+#searchM form {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    justify-content: center
+}
+#searchM form input[type=submit]{
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 60px;
+    margin-left: 5px
+}
+#searchM form input[type=submit]:active {
+    background: rgba(256,256,256,1)
+}
+#searchM form input {
     padding: 5px;
-    margin: 5px;
     font-family: inherit;
     font-weight: inherit;
     border: none;
     border-radius: 5px;
-    font-size: 14px;
-    width: 100%;
+    font-size: 12px;
+    width: 150px;
     color: black;
     text-align: center;
-    background: rgba(256,256,256,0.6)
+    background: rgba(225,225,256,0.6)
 }
-#searchM input:focus {outline: none}
+#searchM form input:focus {outline: none}
 
 @media only screen and (max-width: 964px) {
     #subheaderM {

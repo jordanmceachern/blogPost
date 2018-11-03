@@ -7,10 +7,8 @@ module.exports = app => {
     app.get('/posts/:search', async (req,res) => {
         let array = []
         let search = req.params.search
-        console.log(`this is search param: ${search}`)
         if(search===":undefined"){search = ""}
         const file = (search==="*")? "" : search.replace(':','')
-        console.log(`this is the look up file: ${file}`)
         
         try{     
         if(file===""){

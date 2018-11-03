@@ -1,15 +1,30 @@
 import React, { Component } from 'react'
 import './SubheaderM.css'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
 
 class SubheaderM extends Component {
     state = {
         aboutMeP: false,
         blogPostP: false,
-        searchP: false
+        searchP: false,
+        input: "",
+        lastSearch: "initial"
     }
     
     toggleClass = stateKey => () => {
         this.setState({[stateKey]: !this.state[stateKey]})
+    }
+
+    changeHandler = event => {
+        this.setState({input: event.target.value})
+    }
+
+    searchHandler = event => {
+        event.preventDefault()
+        if(this.state.input===""){return} else {
+            this.props.loadposts(this.state.input)
+        }
     }
 
     render(){
@@ -72,7 +87,14 @@ class SubheaderM extends Component {
         let Search = ""
         if(this.state.searchP===true){
             Search = <div id="searchM">
-                <input type="text" placeholder="Find Name..."/>
+                <form onSubmit={this.searchHandler}>
+                    <input 
+                    type="text" 
+                    placeholder="CASE SENSITIVE..."
+                    onChange={this.changeHandler}
+                    value={this.state.input}/>
+                    <input type="submit" value="find"/>
+                </form> 
             </div>
         }
         const searchKey = "searchP"
@@ -83,11 +105,11 @@ class SubheaderM extends Component {
                 {AboutMe}
                 <p id="blogPostPM" onClick={this.toggleClass(blogPostKey)}>What is BlogPost?</p>
                 {BlogPost}
-                <p id="searchPM" onClick={this.toggleClass(searchKey)}>Search By Author</p>
+                <p id="searchPM" onClick={this.toggleClass(searchKey)}>Search Content</p>
                 {Search}
             </div>
         )
     }
 }
 
-export default SubheaderM
+export default connect(null, actions)(SubheaderM)
