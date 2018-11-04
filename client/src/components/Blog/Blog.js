@@ -7,6 +7,7 @@ import Posts from '../Posts/Posts'
 
 class Blog extends Component {
     state = {
+        id: "",
         text: "",
         author: "",
         first: ""
@@ -16,7 +17,7 @@ class Blog extends Component {
         this.props.loadposts()
     }
 
-    handleChange = event => {
+    handleChange = async event => {
         const text = event.target.value
         const author = this.props.auth.name
         const first = this.props.auth.firstName
@@ -26,6 +27,14 @@ class Blog extends Component {
     handleSubmit = async event => {
         if(this.state.text===""){return}else{
         event.preventDefault()
+
+        if(this.state.id!==""){
+            const post = {text: this.state.text, id: this.state.id}
+            axios.post('/posts/edit', { post }).then(this.props.loadposts(),
+            this.setState({text: "", id: ""})).catch(
+            err => console.log(err)) 
+        } else {
+
         const date = new Date()
         const post = {
             text: this.state.text,
@@ -38,7 +47,7 @@ class Blog extends Component {
             this.setState({text: ""})
         )}
         catch(err) {return console.log(err)
-        }}
+        }}}
     }
 
     renderContent() {
@@ -64,6 +73,13 @@ class Blog extends Component {
     }
 
     render(){
+        const edit = this.props.editPost
+        if(edit!==""){
+            const text = edit.text
+            const id = edit._id
+            this.setState({ text, id }).then(
+            this.props.clearEdit())
+        }
         return(
             <div id="spacer">
                 <div id="Blog">
@@ -77,7 +93,7 @@ class Blog extends Component {
     }
 }
 
-function mapStateToProps({ auth }) {
-    return { auth }
+function mapStateToProps({ auth, editPost }) {
+    return { auth, editPost }
 }
 export default connect(mapStateToProps, actions)(Blog)

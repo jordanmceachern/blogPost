@@ -18,6 +18,17 @@ class Posts extends Component {
             err => console.log(err))
     }
 
+    editButton = (post) => {
+        if(this.props.auth===null){return}
+        if(this.props.auth.name===post[2]){
+            return <button className="postEdit" onClick={this.handleEdit(post[0])}>Edit</button>
+        }
+    }
+
+    handleEdit = (id) => () => {
+        this.props.editPost(id)
+    }
+
     renderContent() {
         switch (this.props.posts) {
             case null:
@@ -31,7 +42,10 @@ class Posts extends Component {
                 const list = posts.map(post => <li className={post[4]} key={post[0]}>
                                                 <h4>{post[2]} - {post[3]}:</h4>
                                                 <p>{post[1]}</p>
-                                                {this.deleteButton(post)}
+                                                <div className="buttons">
+                                                    {this.deleteButton(post)}
+                                                    {this.editButton(post)}
+                                                </div>
                                                </li>)
                 return list
         }

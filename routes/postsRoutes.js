@@ -39,8 +39,25 @@ module.exports = app => {
         new Posts(req.body).save()
     })
 
-    app.post('/posts/delete', async (req,res) => {
-        try{Posts.deleteOne({ "_id": req.body.id }, (err)=>{if(err){console.log(err)}})}
-        catch(err) {return console.log(err)}
+    app.get('/posts/:id', (req,res) => {
+        let find = req.params.id
+        find = find.replace(':','')
+        Posts.findOne({"_id": find}, (err, post)=>{
+            if(err){console.log(err)}
+            res.send(post)
+        })
+    })
+
+    app.post('/posts/edit', (req,res) => {
+        const newPost = req.body
+        Posts.findOne({ "_id": newPost.id }, (err, post)=>{
+            if(err){console.log(err)}
+            post.text = newPost.text
+            post.save(() => {if(err){console.log(err)}})
+        })
+    })
+
+    app.post('/posts/delete', (req,res) => {
+        Posts.deleteOne({ "_id": req.body.id }, (err)=>{if(err){console.log(err)}})
     })
 }
