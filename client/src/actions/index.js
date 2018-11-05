@@ -15,11 +15,9 @@ export const logout = () => async dispatch => {
 
 export const loadposts = (search) => async dispatch => {
     try{
-        if(search===undefined){
+        if(search===undefined || ""){
         const res = await axios.get('/posts/*')
             dispatch({ type: FETCH_POSTS, payload: res.data})
-        } else if(search===""){
-            return
         }
         const res = await axios.get(`/posts/:${search}`)
             dispatch({ type: FETCH_POSTS, payload: res.data})

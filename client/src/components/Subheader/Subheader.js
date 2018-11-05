@@ -8,8 +8,7 @@ class Subheader extends Component {
         aboutMeP: true,
         blogPostP: false,
         searchP: false,
-        input: "",
-        lastSearch: "initial"
+        input: ""
     }
     
     toggleClass = stateKey => () => {
@@ -22,9 +21,7 @@ class Subheader extends Component {
 
     searchHandler = event => {
         event.preventDefault()
-        if(this.state.input===""){return} else {
-            this.props.loadposts(this.state.input)
-        }
+        this.props.loadposts(this.state.input)
     }
 
     render(){
