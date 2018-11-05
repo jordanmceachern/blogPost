@@ -6,5 +6,5 @@ import editPostReducer from './editPostReducer'
 export default combineReducers({
     auth: authReducer,
     posts: postsReducer,
-    editPost: editPostReducer
+    changePost: editPostReducer
 })

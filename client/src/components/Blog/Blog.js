@@ -30,9 +30,9 @@ class Blog extends Component {
 
         if(this.state.id!==""){
             const post = {text: this.state.text, id: this.state.id}
-            axios.post('/posts/edit', { post }).then(this.props.loadposts(),
-            this.setState({text: "", id: ""})).catch(
-            err => console.log(err)) 
+            axios.post('/posts/edit', { post })
+            this.props.loadposts()
+            this.setState({text: "", id: ""})
         } else {
 
         const date = new Date()
@@ -72,14 +72,17 @@ class Blog extends Component {
         }
     }
 
-    render(){
-        const edit = this.props.editPost
-        if(edit!==""){
+    componentWillReceiveProps(nextProps){
+        if(nextProps.changePost !== ""){
+            const edit = this.props.changePost
             const text = edit.text
             const id = edit._id
-            this.setState({ text, id }).then(
-            this.props.clearEdit())
+            this.props.clearEdit()
+            this.setState({ text, id })
         }
+    }
+
+    render(){
         return(
             <div id="spacer">
                 <div id="Blog">
@@ -93,7 +96,7 @@ class Blog extends Component {
     }
 }
 
-function mapStateToProps({ auth, editPost }) {
-    return { auth, editPost }
+function mapStateToProps({ auth, changePost }) {
+    return { auth, changePost }
 }
 export default connect(mapStateToProps, actions)(Blog)

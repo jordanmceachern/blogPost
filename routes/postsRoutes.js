@@ -39,7 +39,7 @@ module.exports = app => {
         new Posts(req.body).save()
     })
 
-    app.get('/posts/:id', (req,res) => {
+    app.get('/posts/find/:id', (req,res) => {
         let find = req.params.id
         find = find.replace(':','')
         Posts.findOne({"_id": find}, (err, post)=>{
@@ -49,10 +49,10 @@ module.exports = app => {
     })
 
     app.post('/posts/edit', (req,res) => {
-        const newPost = req.body
-        Posts.findOne({ "_id": newPost.id }, (err, post)=>{
+        const changePost = req.body
+        Posts.findOne({ "_id": changePost.post.id }, (err, post)=>{
             if(err){console.log(err)}
-            post.text = newPost.text
+            post.text = changePost.post.text
             post.save(() => {if(err){console.log(err)}})
         })
     })

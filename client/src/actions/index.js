@@ -27,7 +27,7 @@ export const loadposts = (search) => async dispatch => {
 }
 
 export const editPost = (id) => async dispatch => {
-    try{const res = await axios.get(`/posts/:${id}`)
+    try{const res = await axios.get(`/posts/find/:${id}`)
         dispatch({ type: EDIT_POST, payload: res.data})}
     catch(err) {return console.log(err)}
 }
