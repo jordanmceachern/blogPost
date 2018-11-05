@@ -14,11 +14,9 @@ export const logout = () => async dispatch => {
 }
 
 export const loadposts = (search) => async dispatch => {
-    try{
-        if(search===undefined || ""){
+    try{if(search===undefined || ""){
         const res = await axios.get('/posts/*')
-            dispatch({ type: FETCH_POSTS, payload: res.data})
-        }
+            dispatch({ type: FETCH_POSTS, payload: res.data})}
         const res = await axios.get(`/posts/:${search}`)
             dispatch({ type: FETCH_POSTS, payload: res.data})
     } catch(err) {return console.log(`error with loadposts: ${err}`)}
