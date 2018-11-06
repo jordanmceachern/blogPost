@@ -4,13 +4,7 @@ const { Schema } = mongoose
 const userSchema = new Schema({
     googleId: String,
     name: String,
-    firstName: String,
-    posts: [
-        {
-            type: mongoose.Schema.Types.ObjectId, 
-            ref: "posts"
-        }
-    ]
+    firstName: String
 })
 
 mongoose.model('users', userSchema)

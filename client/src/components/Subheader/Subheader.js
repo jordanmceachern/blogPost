@@ -85,7 +85,8 @@ class Subheader extends Component {
         if(this.state.searchP===true){
             Search = <div id="search">
                 <form onSubmit={this.searchHandler}>
-                    <input 
+                    <input
+                    autoFocus
                     type="text" 
                     placeholder="(CASE SENSITIVE)"
                     onChange={this.changeHandler}

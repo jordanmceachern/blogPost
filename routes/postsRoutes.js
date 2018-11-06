@@ -12,14 +12,14 @@ module.exports = app => {
         
         try{     
         if(file===""){
-            const data = await Posts.find({}, (err)=>{if(err){console.log(err)}})
+            const data = await Posts.find({}, ((err)=>{if(err){console.log(err)}}))
             data.forEach(post => {
             const item = [post._id, post.text, post.author, post.time, post.firstName]
             array.push(item)
             })
         } else {
-            const data = await Posts.find({ author: { "$regex": `${file}`} }, (err)=>{if(err){console.log(err)}})
-            const moreData = await Posts.find({ text: { "$regex": `${file}`} }, (err)=>{if(err){console.log(err)}})
+            const data = await Posts.find({ author: { "$regex": `${file}`} },((err)=>{if(err){console.log(err)}}))
+            const moreData = await Posts.find({ text: { "$regex": `${file}`} },((err)=>{if(err){console.log(err)}}))
             data.forEach(post => {
             const item = [post._id, post.text, post.author, post.time, post.firstName]
             array.push(item)
@@ -54,6 +54,14 @@ module.exports = app => {
             if(err){console.log(err)}
             post.text = changePost.post.text
             post.save(() => {if(err){console.log(err)}})
+        })
+    })
+
+    app.post('/posts/comment', (req, res) => {
+        const postId = req.body
+        Posts.findOne({ "_id": postId}, (err, post)=>{
+            if(err){console.log(err)}
+            post.comment = ""
         })
     })
 

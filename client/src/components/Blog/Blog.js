@@ -17,7 +17,7 @@ class Blog extends Component {
         this.props.loadposts()
     }
 
-    handleChange = async event => {
+    handleChange = event => {
         const text = event.target.value
         const author = this.props.auth.name
         const first = this.props.auth.firstName
@@ -63,8 +63,11 @@ class Blog extends Component {
                             <p id="makePost">Share a thought.</p>
                             <div id="form">
                                 <form onSubmit={this.handleSubmit}>
-                                    <textarea name="text" placeholder="Write your thoughts here..." 
-                                    onChange={this.handleChange} value={this.state.text}/>
+                                    <textarea 
+                                    name="text" 
+                                    placeholder="Write your thoughts here..." 
+                                    onChange={this.handleChange} 
+                                    value={this.state.text}/>
                                     <input type="submit" value="post"/>
                                 </form>
                             </div>

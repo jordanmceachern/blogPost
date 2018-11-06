@@ -89,6 +89,7 @@ class SubheaderM extends Component {
             Search = <div id="searchM">
                 <form onSubmit={this.searchHandler}>
                     <input 
+                    autoFocus
                     type="text" 
                     placeholder="(CASE SENSITIVE)"
                     onChange={this.changeHandler}
