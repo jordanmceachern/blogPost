@@ -27,6 +27,7 @@ module.exports = app => {
         } else {
             const data = await Posts.find({ author: { "$regex": `${file}`} }, (err)=>{if(err){console.log(err)}}).populate('comments')
             const moreData = await Posts.find({ text: { "$regex": `${file}`} }, (err)=>{if(err){console.log(err)}}).populate('comments')
+            console.log("Hi!")
             data.forEach(post => {
             post.comments.forEach(comment => {
                 const opinion = [comment._id, comment.comment, comment.author, comment.time]
