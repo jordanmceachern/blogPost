@@ -104,4 +104,22 @@ module.exports = app => {
         })
         Comments.deleteOne({ "_id": req.body.id }, err=>{if(err){console.log(err)}})
     })
+
+    app.get('/posts/comment/find/:id', (req,res) => {
+        let find = req.params.id
+        find = find.replace(':','')
+        Comments.findOne({"_id": find}, (err, comment)=>{
+            if(err){console.log(err)}
+            res.send(comment)
+        })
+    })
+
+    app.post('/posts/comment/edit', (req,res) => {
+        const change = req.body
+        Comments.findOne({ "_id": change.comment.id }, (err, subDoc)=>{
+            if(err){console.log(err)}
+            subDoc.comment = change.comment.comment
+            subDoc.save(() => {if(err){console.log(err)}})
+        })
+    })
 }

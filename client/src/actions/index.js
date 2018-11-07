@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_USER, LOGOUT_USER, FETCH_POSTS, EDIT_POST, CLEAR_EDIT } from './types'
+import { FETCH_USER, LOGOUT_USER, FETCH_POSTS, EDIT_POST, CLEAR_EDIT, EDIT_COMMENT, CLEAR_EDIT_COMMENT } from './types'
 
 export const fetchUser = () => async dispatch => {
     try{const res = await axios.get('/api/current_user')
@@ -30,4 +30,14 @@ export const editPost = (id) => async dispatch => {
 
 export const clearEdit = () => dispatch => {
         dispatch({ type: CLEAR_EDIT, payload: ""})
+}
+
+export const editComment = (id) => async dispatch => {
+    try{const res = await axios.get(`/posts/comment/find/:${id}`)
+        dispatch({ type: EDIT_COMMENT, payload: res.data})}
+    catch(err) {return console.log(err)}
+}
+
+export const clearEditComment = () => dispatch => {
+    dispatch({ type: CLEAR_EDIT_COMMENT, payload: ""})
 }

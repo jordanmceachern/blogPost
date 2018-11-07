@@ -7,7 +7,8 @@ import axios from 'axios'
 class Posts extends Component {
     state = {
         comment: "",
-        author: ""
+        author: "",
+        id: ""
     }
 
     deleteButton = post => {
@@ -38,10 +39,8 @@ class Posts extends Component {
         this.props.editPost(id)
     }
 
-    commentButton = iD => {
-        if(this.props.auth===false){return}else{
-            return <button className="postComment" onClick={this.toggleShow(`${iD}+1`)}>Comment</button>
-        }
+    handleCommentEdit = id => () => {
+        this.props.editComment(id)
     }
 
     showButton = post => {
@@ -49,9 +48,9 @@ class Posts extends Component {
     }
 
     toggleShow = iD => () => {
-        const comments = document.getElementById(iD)
-        if(comments===null){return}else{
-        comments.classList.toggle("view")}
+        const selection = document.getElementById(iD)
+        if(selection===null){return}else{
+        selection.classList.toggle("view")} 
     }
 
     handleChange = event => {
@@ -62,6 +61,13 @@ class Posts extends Component {
 
     handleSubmit = iD => async event => {
         event.preventDefault()
+
+        if(this.state.id!==""){
+            const comment = {comment: this.state.comment, id: this.state.id}
+            axios.post('/posts/comment/edit', { comment })
+            this.props.loadposts()
+            this.setState({comment: "", id: ""})
+        } else {
 
         const date = new Date()
         const time = `${date.toDateString()}, ${date.toLocaleTimeString()}`
@@ -77,7 +83,8 @@ class Posts extends Component {
             this.props.loadposts(),
             this.setState({comment: ""})
         )}
-        catch(err) {return console.log(err)}
+        catch(err) {return console.log(err)
+        }}
     }
 
     deleteComment = comment => {
@@ -89,7 +96,7 @@ class Posts extends Component {
     editComment = comment => {
         if(this.props.auth===false){return}
         if(this.props.auth.name===comment[2]){
-            return <button className="commentEdit" onClick={console.log("yo")}>Edit</button>
+            return <button className="commentEdit" onClick={this.handleCommentEdit(comment[0])}>Edit</button>
         }
     }
 
@@ -108,6 +115,23 @@ class Posts extends Component {
         return opinions
     }
 
+    handleForm = (id) => {
+        if(this.props.auth===false){return}else{
+            return(
+            <div className="bar">
+                <form onSubmit={this.handleSubmit(id)}>
+                    <textarea 
+                    autoFocus
+                    name="text"
+                    placeholder="Write your response here..." 
+                    onChange={this.handleChange} 
+                    value={this.state.comment}/>
+                    <input className="post" type="submit" value="post"/>
+                </form>
+            </div>
+        )}
+    }
+
     renderContent() {
         switch (this.props.posts) {
             case null:
@@ -123,28 +147,30 @@ class Posts extends Component {
                                                         <div className="buttons">
                                                             {this.deleteButton(post)}
                                                             {this.editButton(post)}
-                                                            {this.commentButton(post[0])}
                                                             {this.showButton(post)}
                                                         </div>
                                                     </div>
 
-                                                    <div id={post[0]} className="commentHeader view">
-                                                        {this.handleComments(post)}
-                                                    </div>
+                                                    <div id={post[0]} className="view formContainer">
+                                                        <div className="commentHeader">
+                                                            {this.handleComments(post)}
+                                                        </div>
 
-                                                    <div id={`${post[0]}+1`} className="commentForm view">
-                                                        <form onSubmit={this.handleSubmit(post[0])}>
-                                                            <textarea 
-                                                            autoFocus
-                                                            name="text"
-                                                            placeholder="Write your response here..." 
-                                                            onChange={this.handleChange} 
-                                                            value={this.state.comment}/>
-                                                            <input className="post" type="submit" value="post"/>
-                                                        </form>
+                                                        <div className="commentForm">
+                                                            {this.handleForm(post[0])}
+                                                        </div>
                                                     </div>
                                                 </li>)
                 return list
+        }
+    }
+    componentWillReceiveProps(nextProps){
+        if(nextProps.changeComment !== ""){
+            const edit = this.props.changeComment
+            const comment = edit.comment
+            const id = edit._id
+            this.props.clearEditComment()
+            this.setState({ comment, id })
         }
     }
 
@@ -157,7 +183,7 @@ class Posts extends Component {
     }
 }
 
-function mapStateToProps({ posts, auth }) {
-    return { posts, auth }
+function mapStateToProps({ posts, auth, changeComment }) {
+    return { posts, auth, changeComment }
 }
 export default connect(mapStateToProps, actions)(Posts)
