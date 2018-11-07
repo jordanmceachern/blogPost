@@ -6,11 +6,12 @@ import axios from 'axios'
 
 class Posts extends Component {
     state = {
-        comment: ""
+        comment: "",
+        author: ""
     }
 
     deleteButton = post => {
-        if(this.props.auth===null){return}
+        if(this.props.auth===false){return}
         if(this.props.auth.name===post[2]){
             return <button className="postDelete" onClick={this.handleDelete(post[0])}>Delete</button>
         }
@@ -21,8 +22,13 @@ class Posts extends Component {
             err => console.log(err))
     }
 
+    handleDeleteComment = id => () => {
+        axios.post('/posts/comment/remove', { id }).then(this.props.loadposts()).catch(
+            err => console.log(err))
+    }
+
     editButton = post => {
-        if(this.props.auth===null){return}
+        if(this.props.auth===false){return}
         if(this.props.auth.name===post[2]){
             return <button className="postEdit" onClick={this.handleEdit(post[0])}>Edit</button>
         }
@@ -33,13 +39,13 @@ class Posts extends Component {
     }
 
     commentButton = iD => {
-        if(this.props.auth===null){return}else{
+        if(this.props.auth===false){return}else{
             return <button className="postComment" onClick={this.toggleShow(`${iD}+1`)}>Comment</button>
         }
     }
 
-    showButton = iD => {
-        return <button className="showComment" onClick={this.toggleShow(iD)}>View Comments</button>
+    showButton = post => {
+        return <button className="showComment" onClick={this.toggleShow(post[0])}>View Comments ({post[5].length})</button>
     }
 
     toggleShow = iD => () => {
@@ -50,38 +56,64 @@ class Posts extends Component {
 
     handleChange = event => {
         const comment = event.target.value
-        this.setState({ comment })
+        const author = this.props.auth.name
+        this.setState({ comment, author })
     }
 
-    handleSubmit = event => {
+    handleSubmit = iD => async event => {
         event.preventDefault()
-        console.log("yo")
-        //axios.post('/posts/comment', { id }).then(this.props.loadposts()).catch(
-          //  err => console.log(err))
+
+        const date = new Date()
+        const time = `${date.toDateString()}, ${date.toLocaleTimeString()}`
+        const comment = {
+            id: iD,
+            comment: {
+                comment: this.state.comment,
+                author: this.state.author,
+                time: time
+            }
+        }
+        try{await axios.post('/posts/comment/new', comment).then(
+            this.props.loadposts(),
+            this.setState({comment: ""})
+        )}
+        catch(err) {return console.log(err)}
     }
 
-    deleteComment = post => {
-        if(this.props.auth===null){return}
-        if(this.props.auth.name===post[2]){
-            return <button className="commentDelete" onClick={console.log("yo")}>Delete</button>
+    deleteComment = comment => {
+        if(this.props.auth===false){return}
+        if(this.props.auth.name===comment[2]){
+            return <button className="commentDelete" onClick={this.handleDeleteComment(comment[0])}>Delete</button>
         }
     }
-    editComment = post => {
-        if(this.props.auth===null){return}
-        if(this.props.auth.name===post[2]){
+    editComment = comment => {
+        if(this.props.auth===false){return}
+        if(this.props.auth.name===comment[2]){
             return <button className="commentEdit" onClick={console.log("yo")}>Edit</button>
         }
+    }
+
+    handleComments = post => {
+        if(post[5]===null||undefined||""){return}
+        const opinions = post[5].map(comment => {return(
+            <div className="sub" key={comment[0]}>
+                <h4>{comment[2]} - {comment[3]}:</h4>
+                <p>{comment[1]}</p>
+                <div className="buttons">
+                    {this.deleteComment(comment)}
+                    {this.editComment(comment)}
+                </div>
+            </div>)
+        })
+        return opinions
     }
 
     renderContent() {
         switch (this.props.posts) {
             case null:
-                return  <div>
-                            <p>Loading...</p>
-                        </div>
+                return  <li id="noposts">Loading...</li>
             default:
                 const posts = this.props.posts
-                //const comments = //this.props.comments
                 if(posts==="No posts have been made yet"){return (
                 <li id="noposts">Nothing found...</li>)}
                 const list = posts.map(post => <li key={post[0]}>
@@ -92,23 +124,16 @@ class Posts extends Component {
                                                             {this.deleteButton(post)}
                                                             {this.editButton(post)}
                                                             {this.commentButton(post[0])}
-                                                            {this.showButton(post[0])}
+                                                            {this.showButton(post)}
                                                         </div>
                                                     </div>
 
                                                     <div id={post[0]} className="commentHeader view">
-                                                        <div className="sub">
-                                                            <h4>Name - Date and Time:</h4>
-                                                            <p>Comment</p>
-                                                            <div className="buttons">
-                                                                {this.deleteComment(post)}
-                                                                {this.editComment(post)}
-                                                            </div>
-                                                        </div>
+                                                        {this.handleComments(post)}
                                                     </div>
 
                                                     <div id={`${post[0]}+1`} className="commentForm view">
-                                                        <form onSubmit={this.handleSubmit}>
+                                                        <form onSubmit={this.handleSubmit(post[0])}>
                                                             <textarea 
                                                             autoFocus
                                                             name="text"
@@ -118,7 +143,7 @@ class Posts extends Component {
                                                             <input className="post" type="submit" value="post"/>
                                                         </form>
                                                     </div>
-                                               </li>)
+                                                </li>)
                 return list
         }
     }

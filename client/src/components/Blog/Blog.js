@@ -40,7 +40,7 @@ class Blog extends Component {
             text: this.state.text,
             author: this.state.author,
             time: `(${date.toDateString()}, ${date.toLocaleTimeString()})`,
-            firstName: this.state.first 
+            firstName: this.state.first
         }
         try{await axios.post('/posts/new', post).then(
             this.props.loadposts(),

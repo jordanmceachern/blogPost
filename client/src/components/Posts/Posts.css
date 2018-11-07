@@ -1,5 +1,16 @@
 .view {display: none !important}
 
+#noposts {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(256,256,256,0.5);
+    font-size: 14px;
+    font-family: inherit;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 5px 0
+}
+
 ul {
     width: 95%;
     padding: 0;
@@ -53,9 +64,9 @@ ul li {
     border: none;
     border-radius: 5px
 }
-.commentDelete, .commentEdit, .commentComment {font-size: 10px !important}
+.commentDelete, .commentEdit {font-size: 10px !important}
 
-.postComment, .commentComment {
+.postComment {
     position: absolute;
     right: 0;
     margin-top: 5px;
@@ -70,16 +81,15 @@ ul li {
 .postDelete, .commentDelete {background: rgba(256,0,0,0.3)}
 .postEdit, .commentEdit {background: rgba(255,140,0,0.5)}
 .postComment {background: rgba(0,0,256,0.3)}
-.commentComment {background: rgba(0,0,256,0.2)}
 .showComment {background: rgba(255,105,180,0.3)}
 
 .postDelete:active, .commentDelete:active {background: rgba(256,0,0,1)}
 .postEdit:active, .commentEdit:active {background: rgba(255,140,0,1)}
-.postComment:active, .commentComment:active {background: rgba(0,0,256,0.7)}
+.postComment:active {background: rgba(0,0,256,0.7)}
 .showComment:active {background: rgba(255,105,180,1)}
 
-.postDelete:focus, .postEdit:focus, .postComment:focus, .showComment:focus, .commentDelete:focus
-.commentEdit:focus, .commentComment:focus {outline: none}
+.postDelete:focus, .postEdit:focus, .postComment:focus, .showComment:focus, .commentDelete:focus,
+.commentEdit:focus {outline: none}
 
 .commentHeader {
     width: 100%;
@@ -118,7 +128,7 @@ ul li {
 .commentForm {
     position: relative;
     width: 100%;
-    height: min-content;
+    height: 80px;
     padding: 5px
 }
 
