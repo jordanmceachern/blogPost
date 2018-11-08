@@ -79,6 +79,10 @@ class SubheaderM extends Component {
                     could be perceived as a malicious or cyber-bullying post or comment will be removed 
                     and deleted. I hope we can find and create a beautiful source of community together.
                 </p>
+                <p>
+                    For any curious fellow web developers, I built this application primarily by using 
+                    oauth, passport, redux, axios, react js, node js, express js, and mongoose/mongodb.
+                </p>
             </div>
         }
         const blogPostKey = "blogPostP"
