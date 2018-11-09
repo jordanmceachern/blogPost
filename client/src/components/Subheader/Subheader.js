@@ -78,7 +78,7 @@ class Subheader extends Component {
                 </p>
                 <p>
                     For any curious fellow web developers, I built this application primarily by using 
-                    oauth, passport, redux, axios, react js, node js, express js, and mongoose/mongodb.
+                    oauth, passport, redux, axios, react, node, express, and mongoose/mongodb.
                 </p>
             </div>
         }
