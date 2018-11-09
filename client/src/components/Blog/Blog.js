@@ -54,6 +54,8 @@ class Blog extends Component {
         switch (this.props.auth) {
             case null:
                 return
+            case undefined:
+                return
             case false:
                 return <div id="post">
                             <p id="wantPost">Sign up or login to submit a post</p>

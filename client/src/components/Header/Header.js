@@ -10,6 +10,8 @@ class Header extends Component {
         switch (this.props.auth) {
             case null:
                 return
+            case undefined:
+                return
             case false:
                 return <li id="login"><a href="/auth/google"><img src={google_signin} alt="sign in with google"/></a></li>
             default:
