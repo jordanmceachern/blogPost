@@ -138,7 +138,7 @@ class Posts extends Component {
                 return  <li id="noposts">Loading...</li>
             default:
                 const posts = this.props.posts
-                if(posts==="No posts have been made yet"){return (
+                if(posts==="No posts have been made yet"||null||undefined||false||""){return (
                 <li id="noposts">Nothing found...</li>)}
                 const list = posts.map(post => <li key={post[0]}>
                                                     <div className="postHeader">
