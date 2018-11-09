@@ -11,6 +11,10 @@ class Posts extends Component {
         id: ""
     }
 
+    componentDidMount() {
+        this.props.fetchUser()
+    }
+
     deleteButton = post => {
         if(this.props.auth.name===false||null||undefined||""){return}
         if(this.props.auth.name===post[2]){
