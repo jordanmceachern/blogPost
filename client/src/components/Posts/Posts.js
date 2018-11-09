@@ -139,7 +139,7 @@ class Posts extends Component {
             default:
                 const posts = this.props.posts
                 if(posts==="No posts have been made yet"||null||undefined||false||""){return (
-                <li id="noposts">Nothing found...</li>)}
+                <li id="noposts">Nothing found...</li>)}else{
                 const list = posts.map(post => <li key={post[0]}>
                                                     <div className="postHeader">
                                                         <h4>{post[2]} - {post[3]}:</h4>
@@ -162,7 +162,7 @@ class Posts extends Component {
                                                     </div>
                                                 </li>)
                 return list
-        }
+        }}
     }
     componentWillReceiveProps(nextProps){
         if(nextProps.changeComment !== ""){
