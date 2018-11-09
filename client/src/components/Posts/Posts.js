@@ -12,7 +12,7 @@ class Posts extends Component {
     }
 
     deleteButton = post => {
-        if(this.props.auth===false||null||undefined||""){return}
+        if(this.props.auth.name===false||null||undefined||""){return}
         if(this.props.auth.name===post[2]){
             return <button className="postDelete" onClick={this.handleDelete(post[0])}>Delete</button>
         }
@@ -29,7 +29,7 @@ class Posts extends Component {
     }
 
     editButton = post => {
-        if(this.props.auth===false||null||undefined||""){return}
+        if(this.props.auth.name===false||null||undefined||""){return}
         if(this.props.auth.name===post[2]){
             return <button className="postEdit" onClick={this.handleEdit(post[0])}>Edit</button>
         }
@@ -88,13 +88,13 @@ class Posts extends Component {
     }
 
     deleteComment = comment => {
-        if(this.props.auth===false||null||undefined||""){return}
+        if(this.props.auth.name===false||null||undefined||""){return}
         if(this.props.auth.name===comment[2]){
             return <button className="commentDelete" onClick={this.handleDeleteComment(comment[0])}>Delete</button>
         }
     }
     editComment = comment => {
-        if(this.props.auth===false||null||undefined||""){return}
+        if(this.props.auth.name===false||null||undefined||""){return}
         if(this.props.auth.name===comment[2]){
             return <button className="commentEdit" onClick={this.handleCommentEdit(comment[0])}>Edit</button>
         }
