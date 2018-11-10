@@ -48,7 +48,7 @@ class Subheader extends Component {
                     then used to take several courses on udemy.com for over a year. During and after this 
                     period, I built many smaller apps to practice and get a firm understanding of what I'd 
                     learned. In September of 2018, I really wanted to have the experience of developing a full 
-                    stack app to get a taste of the whole picture, which was how the origin of BlogPost came to be. 
+                    stack app to get a taste of the whole picture, which was how the origin of BLOGPOST came to be. 
                 </p>
                 <p>
                     I absolutely love this work, if I can even call it that. As proof, I took this background picture 
