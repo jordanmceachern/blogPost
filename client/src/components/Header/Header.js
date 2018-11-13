@@ -21,11 +21,13 @@ class Header extends Component {
     
     render() {
         return (
-            <div id="header">
-                <h1 id="AppName"><Link to={'/'}>BlogPost</Link></h1>
-                <ul id="signUpLogin">
-                    {this.renderContent()}
-                </ul>
+            <div id="forInternetExp">
+                <div id="header">
+                    <h1 id="AppName"><Link to={'/'}>BlogPost</Link></h1>
+                    <ul id="signUpLogin">
+                        {this.renderContent()}
+                    </ul>
+                </div>
             </div>
         )
     }

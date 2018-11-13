@@ -1,3 +1,8 @@
+#forInternetExp {
+    display: -ms-grid;
+    -ms-grid-columns: min-content
+}
+
 #header {
     position: relative; 
     display: flex; 
