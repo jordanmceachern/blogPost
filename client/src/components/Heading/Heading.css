@@ -15,7 +15,7 @@
 
 @media only screen and (max-width: 964px) {
     #heading {
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
         width: 95%;
         height: max-content;
