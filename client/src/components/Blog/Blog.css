@@ -47,7 +47,6 @@
 }
 
 #makePost, #wantPost {
-    text-align: center;
     text-transform: uppercase;
     font-family: inherit;
     font-weight: inherit;
