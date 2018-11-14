@@ -58,11 +58,15 @@ class Blog extends Component {
                 return
             case false:
                 return  <div id="post">
+                            <div id="center">
                                 <p id="wantPost">Sign up or login to submit a post</p>
+                            </div>
                         </div>
             default:
                 return <div id="postForm">
-                            <p id="makePost">Share a thought.</p>
+                            <div id="center">
+                                <p id="makePost">Share a thought.</p>
+                            </div>
                             <div id="form">
                                 <form onSubmit={this.handleSubmit}>
                                     <textarea 
