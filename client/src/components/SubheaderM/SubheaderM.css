@@ -34,7 +34,8 @@
     padding: 5px;
     border-radius: 5px;
     background-color: rgba(256,256,256,0.6);
-    margin: 0 5px 5px 5px
+    margin: 0 5px 5px 5px;
+    width: 100%
 }
 
 #selfieM {
@@ -85,13 +86,16 @@
         width: 450px;
         margin-top: 10px;
         height: max-content;
-        max-height: 386px;
+        max-height: 70vh;
         border-radius: 5px;
         padding: 5px;
         background: rgba(20,83,20,0.5)
     }
 
-    #subheaderM p {width: 95%}
+    #subheaderM p {
+        width: 95% !important /*for dealing with IE*/;
+        width: 400px /*for dealing with IE */
+    }
     @media only screen and (max-width: 500px) {
         #subheaderM {width: 100%}
     }
