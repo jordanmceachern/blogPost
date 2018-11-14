@@ -61,7 +61,7 @@ img {width: 200px}
 
 #limit, #limit:focus, #limit:active {padding-left: 0; outline: none;}
 
-#click {padding: 10px 6px 10px 6px}
+#click {padding: 10px 10px 10px 6px}
 #click:focus {outline: none}
 #click:active {background-color: rgba(200,200,256,0.5)}
 

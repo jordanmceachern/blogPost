@@ -1,9 +1,15 @@
+#forInternetExp {
+    display: -ms-grid;
+    -ms-grid-columns: max-content
+}
+
 #spacer {
     height: 100%;
     width: 60%;
     position: relative;
     overflow: hidden
 }
+
 #Blog {
     position: absolute;
     width: 100%;
@@ -48,9 +54,9 @@
     background-color: rgba(256,256,256,0.6);
     border-radius: 5px;
     padding: 5px;
-    margin: 0;
+    margin-top: 5px;
 }
-#makePost p, #wantPost p{
+#makePost, #wantPost{
     font-family: inherit;
     font-weight: inherit;
     font-size: 14px;

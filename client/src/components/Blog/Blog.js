@@ -57,8 +57,8 @@ class Blog extends Component {
             case undefined:
                 return
             case false:
-                return <div id="post">
-                            <p id="wantPost">Sign up or login to submit a post</p>
+                return  <div id="post">
+                                <p id="wantPost">Sign up or login to submit a post</p>
                         </div>
             default:
                 return <div id="postForm">
