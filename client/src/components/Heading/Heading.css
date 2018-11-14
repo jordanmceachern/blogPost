@@ -18,8 +18,9 @@
         justify-content: space-around;
         align-items: center;
         width: 95%;
-        height: max-content;
+        height: max-content !important /* for dealing with IE*/;
+        height: 0 /* for dealing with IE */;
         max-height: 500px;
-        min-height: 100px
+        min-height: 150px
     }
 }
