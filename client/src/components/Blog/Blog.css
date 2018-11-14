@@ -64,6 +64,7 @@
 
 #form {
     top: 25px;
+    left: 0;
     position: absolute;
     margin: 10px 0;
     height: 100px;
